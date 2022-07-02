@@ -1,5 +1,5 @@
 {
-  "name": "larmie-api",
+  "name": "awakr-api",
   "main": "src/index.ts",
   "scripts": {
     "format": "prettier \"src/**\" --write",
