@@ -4,12 +4,12 @@ import {
   NavigationContainer,
   DefaultTheme,
   DarkTheme,
+  useTheme,
 } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Pressable } from "react-native";
+import { Pressable, useColorScheme } from "react-native";
 
-import { Colors } from "../constants/Colors";
-import { useColorScheme } from "../hooks/useColorScheme";
+import { EntryScreen } from "../screens/EntryScreen";
 import { ModalScreen } from "../screens/ModalScreen";
 import TabOneScreen from "../screens/TabOneScreen";
 import TabTwoScreen from "../screens/TabTwoScreen";
@@ -26,22 +26,22 @@ const BottomTab = createBottomTabNavigator<RootTabParamList>();
 const TabBarIcon = (props: {
   name: React.ComponentProps<typeof FontAwesome>["name"];
   color: string;
-}) => <FontAwesome size={30} {...props} />;
+}) => <FontAwesome size={25} {...props} />;
 
 const TabNavigation = () => {
-  const colorScheme = useColorScheme();
+  const { colors } = useTheme();
 
   return (
     <BottomTab.Navigator
       initialRouteName="TabOne"
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme].tint,
+        tabBarActiveTintColor: colors.primary,
       }}
     >
       <BottomTab.Screen
         name="TabOne"
         component={TabOneScreen}
-        options={({ navigation }: RootTabScreenProps<"TabOne">) => ({
+        options={({ navigation }) => ({
           title: "Tab One",
           tabBarIcon: ({ color }) => (
             <TabBarIcon name="clock-o" color={color} />
@@ -56,7 +56,7 @@ const TabNavigation = () => {
               <FontAwesome
                 name="info-circle"
                 size={25}
-                color={Colors[colorScheme].text}
+                color={colors.text}
                 style={{ marginRight: 15 }}
               />
             </Pressable>
@@ -76,16 +76,26 @@ const TabNavigation = () => {
 };
 
 export const Navigation = () => {
-  const colorScheme = useColorScheme();
-
   return (
-    <NavigationContainer
-      linking={LinkingConfiguration}
-      theme={colorScheme === "dark" ? DarkTheme : DefaultTheme}
-    >
+    <NavigationContainer linking={LinkingConfiguration} theme={{
+      dark: false,
+      colors: {
+        primary: "#f46a55",
+        card: "#fff",
+        border: "#b5d6e0",
+        text: "#999",
+        background: "#e5f2f9",
+        notification: "#fff",
+      }
+    }}>
       <Stack.Navigator>
         <Stack.Screen
-          name="Root"
+          name="Entry"
+          options={{ headerShown: false }}
+          component={EntryScreen}
+        />
+        <Stack.Screen
+          name="App"
           component={TabNavigation}
           options={{ headerShown: false }}
         />

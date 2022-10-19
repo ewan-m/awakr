@@ -1,8 +1,3 @@
-/**
- * Learn more about using TypeScript with React Navigation:
- * https://reactnavigation.org/docs/typescript/
- */
-
 import { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
 import {
   CompositeScreenProps,
@@ -17,8 +12,9 @@ declare global {
 }
 
 export type RootStackParamList = {
-  Root: NavigatorScreenParams<RootTabParamList> | undefined;
+  App: NavigatorScreenParams<RootTabParamList> | undefined;
   Modal: undefined;
+  Entry: undefined;
   NotFound: undefined;
 };
 
