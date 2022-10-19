@@ -88,7 +88,13 @@ export const EntryScreen = () => {
               borderRadius: 16,
             }}
           >
-            <Text style={{ fontSize: 16, fontWeight: "600", color: colors.background }}>
+            <Text
+              style={{
+                fontSize: 16,
+                fontWeight: "600",
+                color: colors.background,
+              }}
+            >
               Sign in
             </Text>
           </TouchableOpacity>
@@ -107,6 +113,6 @@ export const styles = StyleSheet.create({
     marginVertical: 8,
     borderRadius: 8,
     overflow: "hidden",
-    fontSize: 16
+    fontSize: 16,
   },
 });

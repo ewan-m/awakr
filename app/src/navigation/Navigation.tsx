@@ -77,17 +77,20 @@ const TabNavigation = () => {
 
 export const Navigation = () => {
   return (
-    <NavigationContainer linking={LinkingConfiguration} theme={{
-      dark: false,
-      colors: {
-        primary: "#f46a55",
-        card: "#fff",
-        border: "#b5d6e0",
-        text: "#999",
-        background: "#e5f2f9",
-        notification: "#fff",
-      }
-    }}>
+    <NavigationContainer
+      linking={LinkingConfiguration}
+      theme={{
+        dark: false,
+        colors: {
+          primary: "#f46a55",
+          card: "#fff",
+          border: "#b5d6e0",
+          text: "#999",
+          background: "#e5f2f9",
+          notification: "#fff",
+        },
+      }}
+    >
       <Stack.Navigator>
         <Stack.Screen
           name="Entry"
