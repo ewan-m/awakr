@@ -7,6 +7,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
+    "upgrade": "expo-cli upgrade",
     "format": "prettier \"src/**\" --write"
   },
   "dependencies": {
@@ -30,6 +31,7 @@
     "react-native-web": "0.17.1"
   },
   "devDependencies": {
+    "expo-cli": "^6.0.6",
     "@babel/core": "^7.12.9",
     "@types/react": "~17.0.21",
     "@types/react-native": "~0.64.12",
